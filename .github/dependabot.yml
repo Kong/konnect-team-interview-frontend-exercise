@@ -1,0 +1,35 @@
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+
+registries:
+  npm:
+    type: npm-registry
+    url: https://registry.npmjs.org
+
+updates:
+  # Maintain dependencies for npm
+  - package-ecosystem: npm
+    directory: /
+    registries:
+      - npm
+    schedule:
+      interval: daily
+    target-branch: 'main'
+    commit-message:
+      # Prefix commit messages with "chore"
+      prefix: chore
+      # Prefix devDepedencies commits with "chore"
+      prefix-development: chore
+      include: scope
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    target-branch: 'main'
