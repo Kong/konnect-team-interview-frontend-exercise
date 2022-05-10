@@ -2,11 +2,11 @@
 
 ## Goal
 
-Make this Vue 3 app as close to the [linked mock](https://www.figma.com/file/zeaWiePnc3OCe34I4oZbzN/Service-Card-List?node-id=0%3A1) as possible while utilizing best-practices, coding standards, and great code to improve the example codebase.
+Make this Vue 3 app as close to [this mock](https://www.figma.com/file/zeaWiePnc3OCe34I4oZbzN/Service-Card-List?node-id=0%3A1) as possible while utilizing best-practices, coding standards, and great code to improve the example codebase.
 
-The styling should be responsive and look good different browser window sizes.
+The styling should be responsive and look good at different browser window sizes.
 
-The provided exercise files are merely a starting point and have room for improvement.
+The provided exercise files are a starting point; they have room for improvement.
 
 You may use our component library, [Kongponents](https://beta.kongponents.konghq.com), if desired; however, keep in mind we want to see the code **YOU** can write as well.
 
