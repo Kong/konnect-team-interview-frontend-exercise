@@ -40,8 +40,8 @@ We will review your code to see how you work, how you approach UI, and what trad
 - Coding practices and industry standards
 
 ## How to submit the project
-You have a week to complete this, but we don't expect you to spend more than a few hours on it.  When it's ready, please send your recruiter a link to the source code, preferably in a github repo. 
 
+You have up to a week to complete the exercise, but we don't expect you to spend more than a few hours on it.  When it's ready, please send your recruiter a link to the source code, preferably in a GitHub repo. 
 ---
 
 ## Project Setup
