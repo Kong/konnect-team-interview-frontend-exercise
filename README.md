@@ -4,9 +4,11 @@
 
 Make this Vue 3 app as close to [this mock](https://www.figma.com/file/zeaWiePnc3OCe34I4oZbzN/Service-Card-List?node-id=0%3A1) as possible while utilizing best-practices, coding standards, and great code to improve the example codebase.
 
+
+
 The styling should be responsive and look good at different browser window sizes.
 
-The provided exercise files are a starting point; they have room for improvement.
+The provided exercise files are a starting point; they have room for improvement. Don't treat the mock as gospel -- if you see things that don't make sense, implement what you think is right.
 
 You may use our component library, [Kongponents](https://beta.kongponents.konghq.com), if desired; however, keep in mind we want to see the code **YOU** can write as well.
 
@@ -17,10 +19,11 @@ You may use our component library, [Kongponents](https://beta.kongponents.konghq
 
 ## Functional Requirements
 
-- Ability to view and search services
-- Working pagination
+- Ability to view and search services (client-side implementation)
+- Working pagination (client-side implementation)
 - Responsive layout
-- Update the `README` in the project to describe your design considerations, assumptions and trade-offs made during this exercise.
+- Update the `README` in the project to describe your design considerations, assumptions and trade-offs made during this exercise
+- The top bar, Create Service button, and clicks on service cards don't have to be operable -- could do nothing, could open a modal saying, "Goes to service page", or could be fully implemented (stretch goal)
 
 ## Additional Considerations
 
@@ -37,6 +40,9 @@ We will review your code to see how you work, how you approach UI, and what trad
 - How closely your implementation matches the design
 - Code quality, including appropriate componentization and modularity
 - Coding practices and industry standards
+
+## How to submit the project
+You have a week to complete this, but we don't expect you to spend more than a few hours on it.  When it's ready, please send your recruiter a link to the source code, preferably in a github repo. 
 
 ---
 
