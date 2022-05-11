@@ -4,8 +4,6 @@
 
 Make this Vue 3 app as close to [this mock](https://www.figma.com/file/zeaWiePnc3OCe34I4oZbzN/Service-Card-List?node-id=0%3A1) as possible while utilizing best-practices, coding standards, and great code to improve the example codebase.
 
-
-
 The styling should be responsive and look good at different browser window sizes.
 
 The provided exercise files are a starting point; they have room for improvement. Don't treat the mock as gospel -- if you see things that don't make sense, implement what you think is right.
@@ -23,7 +21,7 @@ You may use our component library, [Kongponents](https://beta.kongponents.konghq
 - Working pagination (client-side implementation)
 - Responsive layout
 - Update the `README` in the project to describe your design considerations, assumptions and trade-offs made during this exercise
-- The top bar, Create Service button, and clicks on service cards don't have to be operable -- could do nothing, could open a modal saying, "Goes to service page", or could be fully implemented (stretch goal)
+- The Create Service button, and clicks on service cards don't have to be operable -- could do nothing, could open a modal with a message, or could be fully implemented (stretch goal)
 
 ## Additional Considerations
 
