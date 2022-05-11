@@ -21,7 +21,7 @@ You may use our component library, [Kongponents](https://beta.kongponents.konghq
 - Working pagination (client-side implementation)
 - Responsive layout
 - Update the `README` in the project to describe your design considerations, assumptions and trade-offs made during this exercise
-- The Create Service button, and clicks on service cards don't have to be operable -- could do nothing, could open a modal with a message, or could be fully implemented (stretch goal)
+- The Create Service button and clicks on service cards don't have to be operable -- could do nothing, could open a modal with a message, or could be fully implemented (stretch goal)
 
 ## Additional Considerations
 
