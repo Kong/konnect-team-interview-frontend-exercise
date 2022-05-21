@@ -45,7 +45,7 @@
     "autoprefixer": "^10.4.4",
     "axios-mock-adapter": "^1.20.0",
     "commitizen": "^4.2.4",
-    "cypress": "^9.5.3",
+    "cypress": "^9.6.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
