@@ -37,7 +37,7 @@
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.26",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
+    "@typescript-eslint/parser": "^5.25.0",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/eslint-config-standard": "^6.1.0",
     "@vue/eslint-config-typescript": "^10.0.0",
