@@ -1,0 +1,85 @@
+{
+  "name": "konnect-team-interview-frontend-exercise",
+  "version": "0.0.0-development",
+  "description": "Konnect Team Interview Frontend Exercise",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kong/konnect-team-interview-frontend-exercise.git"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "server": "json-server --watch db/index.js --routes db/routes.json --port 4001",
+    "build": "yarn typecheck && vite build",
+    "commit": "cz",
+    "preview": "vite preview --port 5050",
+    "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
+    "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'",
+    "test:unit": "cypress open-ct",
+    "test:unit:ci": "cypress run-ct --quiet --reporter spec",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx,vue}'",
+    "lint:fix": "eslint '**/*.{js,jsx,ts,tsx,vue}' --fix"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "pinia": "^2.0.13",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.17.0",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@cypress/vite-dev-server": "^2.2.2",
+    "@cypress/vue": "^3.1.1",
+    "@digitalroute/cz-conventional-changelog-for-jira": "^7.3.0",
+    "@rushstack/eslint-patch": "^1.1.0",
+    "@types/node": "^16.11.26",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "@vue/eslint-config-standard": "^6.1.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "@vue/tsconfig": "^0.1.3",
+    "autoprefixer": "^10.4.4",
+    "axios-mock-adapter": "^1.20.0",
+    "commitizen": "^4.2.4",
+    "cypress": "^9.5.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "faker": "^5.2.0",
+    "json-server": "^0.16.3",
+    "postcss-cli": "^9.1.0",
+    "postcss-custom-properties": "^12.1.7",
+    "sass": "^1.50.0",
+    "start-server-and-test": "^1.14.0",
+    "typescript": "~4.6.3",
+    "vite": "^2.9.1",
+    "vue-tsc": "^0.34.6"
+  },
+  "author": {
+    "name": "Kong Inc.",
+    "url": "https://konghq.com/"
+  },
+  "volta": {
+    "node": "16.14.0",
+    "yarn": "1.22.17"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira",
+      "skipScope": false,
+      "jiraOptional": true,
+      "jiraLocation": "post-description",
+      "jiraPrepend": "[",
+      "jiraAppend": "]"
+    }
+  }
+}
