@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "mrmlnc.vscode-scss",
+    "johnsoncodehk.volar",
+    "johnsoncodehk.vscode-typescript-vue-plugin",
+    "deque-systems.vscode-axe-linter"
+  ],
+  "unwantedRecommendations": []
+}
