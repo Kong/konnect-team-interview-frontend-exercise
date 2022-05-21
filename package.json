@@ -22,7 +22,7 @@
     "lint:fix": "eslint '**/*.{js,jsx,ts,tsx,vue}' --fix"
   },
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^0.27.2",
     "pinia": "^2.0.13",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
