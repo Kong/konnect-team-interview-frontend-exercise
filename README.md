@@ -82,6 +82,16 @@ Separately, start the frontend:
 yarn dev
 ```
 
+### Lint with ESLint
+
+```sh
+# Run the linter
+yarn lint
+
+# Fix linting errors
+yarn lint:fix
+```
+
 ### Build and Minify for Production
 
 ```sh
