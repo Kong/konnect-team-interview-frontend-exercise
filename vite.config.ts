@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -14,6 +16,13 @@ export default defineConfig({
     port: 5001,
     proxy: {
       '/api': 'http://localhost:4001',
+    },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    coverage: {
+      reporter: ['text', 'json', 'html'],
     },
   },
 })

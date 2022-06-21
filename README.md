@@ -98,15 +98,29 @@ yarn lint:fix
 yarn build
 ```
 
-### Run Unit Tests with [Cypress Component Testing](https://docs.cypress.io/guides/component-testing/introduction)
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+Unit test files must be named `*.spec.ts`
 
 ```sh
-yarn test:unit # or `yarn test:unit:ci` for headless testing
+# Run unit tests
+yarn test:unit
+
+# or run unit tests and view in the Vitest UI
+yarn test:unit:ui
+
+# or view test coverage via Vitest
+yarn test:unit:coverage
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+### Run Component Tests with [Cypress Component Testing](https://docs.cypress.io/guides/component-testing/introduction)
+
+Component test files must be named `*.spec.component.ts`
 
 ```sh
-yarn build
-yarn test:e2e # or `yarn test:e2e:ci` for headless testing
+# Run component tests
+yarn test:component
+
+# or run the component tests in the Cypress UI
+yarn test:component:open
 ```

@@ -2,8 +2,9 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "mrmlnc.vscode-scss",
-    "johnsoncodehk.volar",
-    "johnsoncodehk.vscode-typescript-vue-plugin",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "ZixuanChen.vitest-explorer",
     "deque-systems.vscode-axe-linter"
   ],
   "unwantedRecommendations": []

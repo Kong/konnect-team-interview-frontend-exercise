@@ -4,8 +4,8 @@
 import { mount } from '@cypress/vue'
 import ServiceCatalog from './ServiceCatalog.vue'
 
-// Example test for ServiceCatalog component
-// Utilizes Cypress Component Test Runner
+// Example component test for ServiceCatalog.vue
+// Utilizes Cypress Component Test Runner <https://docs.cypress.io/guides/component-testing/introduction>
 
 describe('ServiceCatalog', () => {
   it('shows a search input', () => {
