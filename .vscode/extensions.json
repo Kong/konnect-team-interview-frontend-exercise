@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "mrmlnc.vscode-scss",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "ZixuanChen.vitest-explorer",
+    "deque-systems.vscode-axe-linter"
+  ],
+  "unwantedRecommendations": []
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1050b7c5-46ff-2bdb-a4de-000d01936e0d",
+    "fullName": "Marty McFly",
+    "preferredName": "",
+    "email": "marty.mcfly@example.com",
+    "createdAt": "2022-04-08T16:35:57.115735Z",
+    "updatedAt": "2022-04-13T18:52:37.794858Z",
+    "active": true
+  },
+  {
+    "id": "1050b7c5-2bdb-46ff-2bdb-000d01936e0d",
+    "fullName": "Doc Brown",
+    "preferredName": "",
+    "email": "emmett.brown@example.com",
+    "createdAt": "2022-04-08T16:35:57.115735Z",
+    "updatedAt": "2022-04-13T18:52:37.794858Z",
+    "active": true
+  },
+  {
+    "id": "1050b7c5-a4de-2bdb-46ff-000d01936e0d",
+    "fullName": "Biff Tannen",
+    "preferredName": "",
+    "email": "biff.tannen@example.com",
+    "createdAt": "2022-04-08T16:35:57.115735Z",
+    "updatedAt": "2022-04-13T18:52:37.794858Z",
+    "active": false
+  }
+]
