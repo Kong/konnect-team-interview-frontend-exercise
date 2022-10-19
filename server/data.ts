@@ -25,6 +25,7 @@ const data = () => {
 
   for (let i = 0; i < (Math.random() * 100) + 50; i++) {
     const published = Math.random() < 0.75
+    const configured = published || Math.random() < 0.75
 
     data.services.push({
       id: faker.datatype.uuid(),
@@ -32,8 +33,9 @@ const data = () => {
       description: Math.random() < 0.95 ? (Math.random() > 0.50 ? faker.commerce.productDescription() : faker.company.catchPhrase()) : '',
       type: Math.random() < 0.75 ? 'REST' : 'HTTP',
       published,
+      configured,
       versions: (() => {
-        const versionCount = faker.datatype.number({ min: published ? 1 : 0, max: 5 })
+        const versionCount = configured ? faker.datatype.number({ min: published ? 1 : 0, max: 5 }) : 0
 
         if (versionCount === 0) return []
 
@@ -41,12 +43,12 @@ const data = () => {
           id: faker.datatype.uuid(),
           name: faker.system.semver(),
           description: Math.random() < 0.80 ? faker.company.catchPhrase() : faker.commerce.productDescription(),
-          developer: getDeveloper(),
+          developer: published ? getDeveloper() : undefined,
           updated_at: faker.datatype.datetime({ min: new Date().setMonth((new Date().getMonth() - 6)), max: new Date().getTime() }),
         }))
       })(),
       metrics: (() => {
-        if (!published) return undefined
+        if (!configured) return undefined
 
         return {
           latency: faker.datatype.float({ min: 0.3, max: 0.99, precision: 0.01 }),
