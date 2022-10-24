@@ -1,0 +1,23 @@
+// popover
+
+.popover-enter-active {
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.popover-enter,
+.popover-leave-to {
+  opacity: 0;
+  transform: scaleY(.95);
+}
+
+.popover-enter-to,
+.popover-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.popover-leave-active {
+  transition-duration: 100ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}

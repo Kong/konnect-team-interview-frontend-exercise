@@ -10,7 +10,7 @@ const open = ref(false)
       <slot />
     </button>
 
-    <transition>
+    <transition name="popover">
       <div
         v-if="open"
         class="popover-content"
