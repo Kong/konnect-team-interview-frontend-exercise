@@ -20,6 +20,15 @@ a {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
 .fill-current {
   fill: currentColor;
 }
