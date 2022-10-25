@@ -54,9 +54,14 @@
   font-weight: 800;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Inter";
   src: url("@/assets/fonts/Inter-Black.ttf/") format("truetype");
   font-weight: 900;
   font-style: normal;
+}
+
+h1 {
+  margin: 0;
 }

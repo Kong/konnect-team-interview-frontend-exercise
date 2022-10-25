@@ -73,7 +73,6 @@ const { user } = useAuthStore()
 .default-header {
   display: inline-flex;
   width: 100%;
-  margin-bottom: 2em;
 
   .nav {
     padding: 1em;

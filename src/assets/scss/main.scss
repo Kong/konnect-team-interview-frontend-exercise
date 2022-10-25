@@ -13,8 +13,14 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: normal;
   font-size: 1.6rem;
+  color: $grey-900;
   line-height: 1.2;
   margin: 0 auto;
+  background: $grey-50;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 a {

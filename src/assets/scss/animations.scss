@@ -21,3 +21,20 @@
   transition-duration: 100ms;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
+
+// slideIn
+
+.slideIn-enter-active,
+.slideIn-leave-active {
+  transition: all .6s ease-in-out;
+}
+
+.slideIn-enter-from,
+.slideIn-leave-to {
+  right: -100%;
+}
+
+.slideIn-enter-to,
+.slideIn-leave-from {
+  right: 0;
+}
