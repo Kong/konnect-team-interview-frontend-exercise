@@ -5,6 +5,7 @@ import Checkmark from '@/assets/icons/checkmark.svg?component'
 import Times from '@/assets/icons/times.svg?component'
 import RoundPill from '@/components/common/RoundPill.vue'
 import useFormatMetrics from '@/composables/useFormatMetrics'
+import AvatarGroup from '@/components/common/AvatarGroup.vue'
 
 const props = defineProps<{
   service: ServiceDetails;
@@ -18,6 +19,10 @@ const versionCountText = computed(() => {
 })
 
 const { uptimeFormatted, requestsFormatted, errorsFormatted } = useFormatMetrics(props.service)
+
+const serviceDevelopers = computed(() => {
+  return props.service.versions.filter(version => version.developer).map(version => version.developer)
+})
 </script>
 
 <template>
@@ -71,6 +76,10 @@ const { uptimeFormatted, requestsFormatted, errorsFormatted } = useFormatMetrics
     >
       Not configured with runtime yet
     </p>
+    <AvatarGroup
+      v-if="serviceDevelopers.length"
+      :profiles="serviceDevelopers"
+    />
   </div>
 </template>
 
@@ -102,6 +111,9 @@ const { uptimeFormatted, requestsFormatted, errorsFormatted } = useFormatMetrics
 
 .footer {
   margin-top: 3em;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: end;
 
   .metrics {
     list-style-type: none;
