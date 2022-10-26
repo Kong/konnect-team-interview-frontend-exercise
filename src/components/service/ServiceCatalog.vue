@@ -8,11 +8,9 @@ const { services, loading } = useServices()
 
 const searchQuery = ref('')
 const sidebarOpen = ref(false)
-const catalog = ref(null)
 
 const toggleSidebar = () => {
   sidebarOpen.value = !sidebarOpen.value
-  catalog.value.classList.toggle('sidebar-open')
 }
 </script>
 
@@ -20,7 +18,7 @@ const toggleSidebar = () => {
   <div class="service-catalog-wrapper">
     <ServiceSidebar :is-open="sidebarOpen" />
     <div class="service-catalog-container">
-      <header>
+      <div class="header">
         <div>
           <h1>Service Hub</h1>
           <p>
@@ -35,7 +33,7 @@ const toggleSidebar = () => {
             placeholder="Search services"
           >
         </div>
-      </header>
+      </div>
       <div
         ref="catalog"
         class="catalog"
@@ -43,10 +41,15 @@ const toggleSidebar = () => {
         <div
           v-for="service in services"
           :key="service.id"
+          :aria-label="service.name"
           class="service-card"
+          tabindex="0"
           @click="toggleSidebar"
         >
-          <ServiceDetails :service="service" />
+          <ServiceDetails
+            is-card
+            :service="service"
+          />
         </div>
       </div>
     </div>
@@ -58,7 +61,7 @@ const toggleSidebar = () => {
   margin: 3em 0;
   padding: 0 1em;
 
-  header {
+  .header {
     display: flex;
     justify-content: space-between;
   }
@@ -70,23 +73,19 @@ const toggleSidebar = () => {
     gap: 3rem;
 
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    @media (min-width: $md) {
+    @media (min-width: $lg) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    @media (min-width: $lg) {
+    @media (min-width: $xl) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .service-card {
       background: $white;
       padding: 2.2rem 2.2rem;
-    }
-
-    &.sidebar-open {
-      transition: width 0.5s linear;
-      @media (min-width: $lg) {
-        width: calc(100% - 350px);
-      }
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
   }
 }

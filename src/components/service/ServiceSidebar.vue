@@ -17,17 +17,12 @@ defineProps<{
 .sidebar-container {
   position: fixed;
   background: $white;
-  width: 340px;
-  height: calc(100vh - 70px);
+  width: 360px;
   right: 0;
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04));
+  z-index: 10;
 
   top: 70px;
-  @media (min-width: $md) {
-    top: 220px;
-  }
-  @media (min-width: $lg) {
-    filter: none;
-  }
+  height: calc(100vh - 70px);
 }
 </style>

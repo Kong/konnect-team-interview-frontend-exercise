@@ -73,3 +73,9 @@ h3 {
 .text-sm {
   font-size: 1.3rem;
 }
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
