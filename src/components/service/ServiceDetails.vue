@@ -60,7 +60,7 @@ const serviceDevelopers = computed(() => {
       class="metrics"
     >
       <li>
-        {{ service.metrics.latency }}ms
+        {{ service.metrics?.latency }}ms
         <span class="metric-name">latency</span>
       </li>
       <li>{{ uptimeFormatted }}% <span class="metric-name">uptime</span></li>
@@ -113,7 +113,7 @@ const serviceDevelopers = computed(() => {
   margin-top: 3em;
   display: inline-flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 
   .metrics {
     list-style-type: none;

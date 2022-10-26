@@ -7,7 +7,7 @@ import { useAuthStore } from '@/stores/auth'
 const { login } = useAuthStore()
 
 // hardcode login here
-onBeforeMount((): Promise<void> => {
+onBeforeMount((): void => {
   login()
 })
 </script>

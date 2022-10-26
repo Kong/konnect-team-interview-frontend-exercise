@@ -19,7 +19,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [vue(), svgLoader()],
+  plugins: [vue(), svgLoader({ svgo: false })],
   resolve: {
     alias: {
       '@/': fileURLToPath(new URL('./src/', import.meta.url)),
