@@ -4,6 +4,9 @@ import useServices from '@/composables/useServices'
 import ServiceSidebar from '@/components/service/ServiceSidebar.vue'
 import ServiceDetails from '@/components/service/ServiceDetails.vue'
 import { IServiceDetails } from '@/interfaces/service-details.interface'
+import CtaBitton from '@/components/common/CtaBitton.vue'
+import Plus from '@/assets/icons/plus.svg?component'
+import Search from '@/assets/icons/search.svg?component'
 
 const { services, loading } = useServices()
 
@@ -23,19 +26,27 @@ const showServiceDetails = (service: IServiceDetails) => {
     />
     <div class="service-catalog-container">
       <div class="header">
-        <div>
+        <div class="view-title">
           <h1>Service Hub</h1>
           <p>
             Organize services, manage and track versioning and API service
             documentation. <a href="#">Learn more</a>
           </p>
         </div>
-        <div>
-          <input
-            v-model="searchQuery"
-            class="search-input"
-            placeholder="Search services"
-          >
+        <div class="action-panel">
+          <div class="search-input">
+            <Search class="search-icon" />
+            <input
+              v-model="searchQuery"
+              placeholder="Search"
+            >
+          </div>
+          <CtaBitton>
+            <template #icon>
+              <Plus class="fill-current" />
+            </template>
+            Service <span class="button-text">&nbsp;Package</span>
+          </CtaBitton>
         </div>
       </div>
       <div
@@ -66,8 +77,54 @@ const showServiceDetails = (service: IServiceDetails) => {
   padding: 0 1em;
 
   .header {
+    width: 100%;
+
+    .view-title {
+      @media (min-width: $lg) {
+        max-width: 50%;
+      }
+    }
+
+    .action-panel {
+      display: flex;
+      align-items: center;
+
+      .search-input {
+        position: relative;
+
+        input {
+          padding: 1.3rem 1.5rem;
+          padding-left: 35px;
+          margin-right: 1.5rem;
+          font-size: 1.5rem;
+          border: $grey-200 solid 1px;
+          border-radius: 5px;
+        }
+
+        .search-icon {
+          position: absolute;
+          left: 10px;
+          top: calc(50% - 10px);
+        }
+      }
+
+      .button-text {
+        display: none;
+
+        @media (min-width: $md) {
+          display: inline-block;
+        }
+      }
+    }
+
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    @media (min-width: $lg) {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: row;
+    }
   }
 
   .catalog {
@@ -92,9 +149,5 @@ const showServiceDetails = (service: IServiceDetails) => {
       flex-direction: column;
     }
   }
-}
-
-input {
-  padding: 8px 4px;
 }
 </style>
