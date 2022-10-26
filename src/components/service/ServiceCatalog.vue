@@ -3,27 +3,31 @@ import { ref } from 'vue'
 import useServices from '@/composables/useServices'
 import ServiceSidebar from '@/components/service/ServiceSidebar.vue'
 import ServiceDetails from '@/components/service/ServiceDetails.vue'
+import { IServiceDetails } from '@/interfaces/service-details.interface'
 
 const { services, loading } = useServices()
 
 const searchQuery = ref('')
-const sidebarOpen = ref(false)
+const currentService: IServiceDetails | null = ref(null)
 
-const toggleSidebar = () => {
-  sidebarOpen.value = !sidebarOpen.value
+const showServiceDetails = (service: IServiceDetails) => {
+  currentService.value = service
 }
 </script>
 
 <template>
   <div class="service-catalog-wrapper">
-    <ServiceSidebar :is-open="sidebarOpen" />
+    <ServiceSidebar
+      :service="currentService"
+      @closed="currentService = null"
+    />
     <div class="service-catalog-container">
       <div class="header">
         <div>
           <h1>Service Hub</h1>
           <p>
             Organize services, manage and track versioning and API service
-            documentation. Learn more
+            documentation. <a href="#">Learn more</a>
           </p>
         </div>
         <div>
@@ -44,7 +48,7 @@ const toggleSidebar = () => {
           :aria-label="service.name"
           class="service-card"
           tabindex="0"
-          @click="toggleSidebar"
+          @click="showServiceDetails(service)"
         >
           <ServiceDetails
             is-card

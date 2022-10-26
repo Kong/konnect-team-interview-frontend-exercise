@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ServiceDetails } from '@/interfaces/service-details.interface'
+import { IServiceDetails } from '@/interfaces/service-details.interface'
 import Checkmark from '@/assets/icons/checkmark.svg?component'
 import Times from '@/assets/icons/times.svg?component'
 import RoundPill from '@/components/common/RoundPill.vue'
@@ -8,7 +8,7 @@ import useFormatMetrics from '@/composables/useFormatMetrics'
 import AvatarGroup from '@/components/common/AvatarGroup.vue'
 
 const props = defineProps<{
-  service: ServiceDetails;
+  service: IServiceDetails;
   isCard?: boolean;
 }>()
 

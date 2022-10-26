@@ -1,3 +1,5 @@
+@import "@/assets/scss/colors.scss";
+
 // TYPOGRAPHY
 
 @font-face {
@@ -78,4 +80,8 @@ h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+a {
+  color: $blue-400;
 }

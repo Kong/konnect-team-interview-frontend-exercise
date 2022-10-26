@@ -8,6 +8,7 @@ const props = defineProps<{
     name?: string
   }[],
   limit?: number;
+  size?: 'sm' | 'md' | 'lg'
 }>()
 
 const displayedProfiles = computed(() => {
@@ -22,11 +23,25 @@ const notDisplayedProfiles = computed(() => {
   const limit = props.limit || 2
   return props.profiles.length - limit
 })
+
+const size = computed(() => {
+  const assignedSize = props.size || 'md'
+  if (assignedSize === 'sm') {
+    return '20px'
+  }
+  if (assignedSize === 'lg') {
+    return '40px'
+  }
+  return '30px'
+})
 </script>
 
 <template>
   <div class="group-avatars">
-    <div v-if="notDisplayedProfiles > 0">
+    <div
+      v-if="notDisplayedProfiles > 0"
+      :style="{ height: size, width: size }"
+    >
       <p>+{{ notDisplayedProfiles }}</p>
     </div>
     <img
@@ -35,7 +50,7 @@ const notDisplayedProfiles = computed(() => {
       v-tooltip="profile.name"
       :alt="profile.name"
       :src="profile.avatar"
-      :style="{ zIndex: 14-n}"
+      :style="{ zIndex: 14-n, height: size, width: size}"
     >
   </div>
 </template>
@@ -48,8 +63,6 @@ const notDisplayedProfiles = computed(() => {
   img, div {
     margin-left: -0.5rem;
     display: inline-block;
-    height: 30px;
-    width: 30px;
     border-radius: 100%;
     border: white 3px;
   }

@@ -20,7 +20,7 @@ interface ServiceVersion {
   updated_at: Date;
 }
 
-export interface ServiceDetails {
+export interface IServiceDetails {
   id: string;
   name: string;
   description: string;
