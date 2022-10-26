@@ -4,6 +4,7 @@ import { ServiceDetails } from '@/interfaces/service-details.interface'
 import Checkmark from '@/assets/icons/checkmark.svg?component'
 import Times from '@/assets/icons/times.svg?component'
 import RoundPill from '@/components/common/RoundPill.vue'
+import useFormatMetrics from '@/composables/useFormatMetrics'
 
 const props = defineProps<{
   service: ServiceDetails;
@@ -16,32 +17,7 @@ const versionCountText = computed(() => {
     : `${props.service.versions.length} version`
 })
 
-const uptimeFormatted = computed(() => {
-  if (props.service.metrics?.uptime) {
-    return props.service.metrics.uptime.toFixed(2)
-  }
-  return 0
-})
-
-const requestsFormatted = computed(() => {
-  if (props.service.metrics?.requests) {
-    const requests = props.service.metrics.requests
-    if (requests > 1000000) {
-      return `${(requests / 1000000).toPrecision(3)}m`
-    }
-    if (requests > 1000) {
-      return `${(requests / 1000).toPrecision(3)}k`
-    }
-  }
-  return 0
-})
-
-const errorsFormatted = computed(() => {
-  if (props.service.metrics?.errors) {
-    return props.service.metrics.errors.toFixed(2)
-  }
-  return 0
-})
+const { uptimeFormatted, requestsFormatted, errorsFormatted } = useFormatMetrics(props.service)
 </script>
 
 <template>
