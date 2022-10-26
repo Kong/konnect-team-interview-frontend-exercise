@@ -32,6 +32,7 @@ const notDisplayedProfiles = computed(() => {
     <img
       v-for="(profile, n) in displayedProfiles"
       :key="profile.id"
+      v-tooltip="profile.name"
       :alt="profile.name"
       :src="profile.avatar"
       :style="{ zIndex: 14-n}"
