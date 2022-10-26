@@ -62,6 +62,14 @@
   font-style: normal;
 }
 
-h1 {
+h1, h2, h3 {
   margin: 0;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.text-sm {
+  font-size: 1.3rem;
 }

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import useServices from '@/composables/useServices'
 import ServiceSidebar from '@/components/service/ServiceSidebar.vue'
+import ServiceDetails from '@/components/service/ServiceDetails.vue'
 
 const { services, loading } = useServices()
 
@@ -18,9 +19,7 @@ const toggleSidebar = () => {
 <template>
   <div class="service-catalog-wrapper">
     <ServiceSidebar :is-open="sidebarOpen" />
-    <div
-      class="service-catalog-container"
-    >
+    <div class="service-catalog-container">
       <header>
         <div>
           <h1>Service Hub</h1>
@@ -37,37 +36,27 @@ const toggleSidebar = () => {
           >
         </div>
       </header>
-      <ul
+      <div
         ref="catalog"
         class="catalog"
       >
-        <li
+        <div
           v-for="service in services"
           :key="service.id"
-          class="service"
+          class="service-card"
           @click="toggleSidebar"
         >
-          <div>
-            <p>
-              {{ service.name }}
-            </p>
-            <p>{{ service.description }}</p>
-          </div>
-        </li>
-      </ul>
+          <ServiceDetails :service="service" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.service-catalog-wrapper {
-  position: relative;
-}
-
 .service-catalog-container {
   margin: 3em 0;
   padding: 0 1em;
-  transition: width 0.5s ease-in-out;
 
   header {
     display: flex;
@@ -75,38 +64,30 @@ const toggleSidebar = () => {
   }
 
   .catalog {
+    margin-top: 15px;
     width: 100%;
+    display: grid;
+    gap: 3rem;
+
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    @media (min-width: $md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (min-width: $lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-card {
+      background: $white;
+      padding: 2.2rem 2.2rem;
+    }
 
     &.sidebar-open {
+      transition: width 0.5s linear;
       @media (min-width: $lg) {
         width: calc(100% - 350px);
       }
     }
-  }
-}
-
-.service-catalog-container .catalog {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px 0 0 0;
-  list-style: none;
-  padding: 0;
-}
-
-.service {
-  width: 200px;
-  margin: 6px;
-  border: 1px solid #999;
-  border-radius: 10px;
-  padding: 8px 16px;
-
-  p:first-of-type {
-    color: #333;
-    font-weight: 700;
-  }
-
-  p {
-    color: #666;
   }
 }
 

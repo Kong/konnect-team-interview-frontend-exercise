@@ -16,14 +16,18 @@ defineProps<{
 <style lang="scss" scoped>
 .sidebar-container {
   position: fixed;
-  background: red;
-  width: 350px;
+  background: $white;
+  width: 340px;
   height: calc(100vh - 70px);
   right: 0;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04));
 
   top: 70px;
   @media (min-width: $md) {
-    top: 235px;
+    top: 220px;
+  }
+  @media (min-width: $lg) {
+    filter: none;
   }
 }
 </style>
