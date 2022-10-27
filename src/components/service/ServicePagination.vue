@@ -8,12 +8,18 @@ const props = defineProps<{
 
 const emit = defineEmits(['next', 'previous'])
 
+const rangeStart = computed(() => {
+  return props.services.length === 0 ? 0 : props.currentOffset + 1
+})
+
+const rangeEnd = computed(() => {
+  return props.currentOffset + 9 > props.services.length
+    ? props.services.length
+    : props.currentOffset + 9
+})
+
 const currentRange = computed(() => {
-  return `${props.currentOffset + 1} to ${
-    props.currentOffset + 9 > props.services.length
-      ? props.services.length
-      : props.currentOffset + 9
-  }`
+  return `${rangeStart.value} to ${rangeEnd.value}`
 })
 
 const canGoToPrevious = computed(() => {
@@ -58,8 +64,8 @@ const canGoToNext = computed(() => {
 
   button {
     margin: 0 3rem;
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     padding: 1rem;
     color: $blue-500;
     border: 2px solid;
@@ -80,6 +86,8 @@ const canGoToNext = computed(() => {
   }
 
   p {
+    font-size: 13px;
+    line-height: 20px;
     color: $grey-700;
     margin: 0;
   }

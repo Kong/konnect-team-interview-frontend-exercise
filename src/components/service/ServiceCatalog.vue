@@ -113,7 +113,7 @@ const showAlert = () => {
         <LoadingAnimation />
       </div>
       <ServicePagination
-        v-if="!loading && paginatedServices.length"
+        v-if="!loading"
         :current-offset="paginationOffset"
         :services="services"
         @next="setPagination('next')"
@@ -125,8 +125,9 @@ const showAlert = () => {
 
 <style lang="scss" scoped>
 .service-catalog-container {
-  margin: 3em 0;
+  margin: 3em auto;
   padding: 0 1em;
+  max-width: $xxl;
 
   .header {
     width: 100%;
@@ -203,7 +204,7 @@ const showAlert = () => {
   }
 
   .not-found {
-    padding-top: 10rem;
+    padding-top: 12rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -215,7 +216,7 @@ const showAlert = () => {
   }
 
   .non-loading {
-    min-height: 80vh;
+    min-height: 910px;
   }
 
   .loading {

@@ -32,7 +32,7 @@ const size: any = computed(() => {
   if (assignedSize === 'lg') {
     return '40px'
   }
-  return '30px'
+  return '35px'
 })
 </script>
 

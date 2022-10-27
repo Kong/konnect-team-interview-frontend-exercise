@@ -19,10 +19,13 @@ const versionCountText = computed(() => {
     : `${props.service.versions.length} version`
 })
 
-const { uptimeFormatted, requestsFormatted, errorsFormatted } = useFormatMetrics(props.service)
+const { uptimeFormatted, requestsFormatted, errorsFormatted } =
+  useFormatMetrics(props.service)
 
 const serviceDevelopers = computed(() => {
-  return props.service.versions.filter(version => version.developer).map(version => version.developer)
+  return props.service.versions
+    .filter((version) => version.developer)
+    .map((version) => version.developer)
 })
 </script>
 
@@ -124,6 +127,8 @@ h3 {
 .service-description {
   color: $grey-700;
   max-width: 100%;
+  font-size: 13px;
+  line-height: 20px;
 }
 
 .footer {
@@ -141,6 +146,8 @@ h3 {
       position: relative;
       margin-top: 7px;
       font-weight: 600;
+      font-size: 13px;
+      line-height: 16px;
 
       &::before {
         content: "";
@@ -165,7 +172,9 @@ h3 {
     color: $grey-700;
     padding: 0 0 0 15px;
     position: relative;
-    margin: 60px 0 0 0;
+    margin: 53px 0 0 0;
+    font-size: 13px;
+    line-height: 16px;
 
     &::before {
       content: "";

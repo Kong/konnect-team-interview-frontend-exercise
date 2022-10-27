@@ -13,16 +13,16 @@ const developerName = (name: string): string => {
 
 <template>
   <div class="service-versions">
-    <h3 class="title">
+    <h4 class="title">
       Versions ({{ props.service?.versions.length }})
-    </h3>
+    </h4>
     <div
       v-for="version in props.service?.versions"
       :key="version.id"
       class="version"
     >
       <div>
-        <p class="version-number">
+        <p class="version-name">
           v{{ version.name }}
         </p>
         <p class="version-description">
@@ -60,7 +60,7 @@ const developerName = (name: string): string => {
   margin-top: 5rem;
 
   .title {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
   }
 
   .version {
@@ -76,13 +76,11 @@ const developerName = (name: string): string => {
       display: inline-flex;
       justify-content: space-between;
       align-items: flex-start;
-
-      &:nth-child(2) {
-        align-items: center;
-      }
     }
 
-    .version-number {
+    .version-name {
+      font-size: 13px;
+      line-height: 24px;
       font-weight: 600;
       color: $grey-900;
       margin-right: 10px;
@@ -96,12 +94,15 @@ const developerName = (name: string): string => {
       overflow: hidden;
       color: $grey-700;
       margin-right: 5px;
+      font-size: 12px;
+      line-height: 16px;
     }
 
     .service-type-label {
-      padding: 3px 5px;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 5px;
       border-radius: 4px;
-      font-size: 1rem;
       background: $blue-100;
       color: $blue-400;
     }
@@ -111,14 +112,16 @@ const developerName = (name: string): string => {
     }
 
     .developer-name {
-      font-size: 1.3rem;
+      font-size: 13px;
+      line-height: 24px;
       font-weight: 600;
       color: $grey-900;
       max-width: 50px;
     }
 
     .updated-at {
-      font-size: 1rem;
+      font-size: 12px;
+      line-height: 16px;
       color: $grey-700;
     }
 

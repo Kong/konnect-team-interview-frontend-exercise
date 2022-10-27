@@ -15,9 +15,10 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 .pill {
-  padding: 6px 10px;
-  border-radius: 15px;
-  font-size: 1.3rem;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  line-height: 15.73px;
 }
 
 .pill-info {

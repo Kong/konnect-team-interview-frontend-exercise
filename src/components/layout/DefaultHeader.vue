@@ -84,6 +84,7 @@ const { user } = useAuthStore()
 
     a {
       color: $white;
+      font-size: 15px;
       font-weight: 600;
       padding: 0.3em;
       display: inline-flex;
