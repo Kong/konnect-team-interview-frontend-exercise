@@ -17,13 +17,13 @@ const developerName = (name: string): string => {
       Versions ({{ props.service?.versions.length }})
     </h3>
     <div
-      v-for="(version, n) in props.service?.versions"
+      v-for="version in props.service?.versions"
       :key="version.id"
       class="version"
     >
       <div>
         <p class="version-number">
-          v{{ n + 1 }}.0
+          v{{ version.name }}
         </p>
         <p class="version-description">
           {{ version.description }}

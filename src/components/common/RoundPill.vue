@@ -24,4 +24,9 @@ const props = defineProps<{
   background: $blue-100;
   color: $blue-400;
 }
+
+.pill-danger {
+  background: $red-100;
+  color: $red-400;
+}
 </style>

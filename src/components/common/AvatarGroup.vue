@@ -4,8 +4,8 @@ import { computed } from 'vue'
 const props = defineProps<{
   profiles: {
     id: string,
-    avatar?: string,
-    name?: string
+    name: string,
+    avatar: string
   }[],
   limit?: number;
   size?: 'sm' | 'md' | 'lg'

@@ -54,7 +54,7 @@ const serviceDevelopers = computed(() => {
       {{ versionCountText }}
     </RoundPill>
   </div>
-  <h3>
+  <h3 :class="{ truncate: props.isCard }">
     {{ service.name }}
   </h3>
   <p
@@ -115,6 +115,10 @@ const serviceDevelopers = computed(() => {
       color: $grey-400;
     }
   }
+}
+
+h3 {
+  max-width: 100%;
 }
 
 .service-description {
