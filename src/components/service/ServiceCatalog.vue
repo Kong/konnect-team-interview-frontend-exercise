@@ -9,9 +9,12 @@ import Plus from '@/assets/icons/plus.svg?component'
 import Search from '@/assets/icons/search.svg?component'
 import useDebounce from '@/composables/useDebounce'
 import LoadingAnimation from '@/components/common/LoadingAnimation.vue'
+import usePagination from '@/composables/usePagination'
+import ServicePagination from '@/components/service/ServicePagination.vue'
 
-const { services, loading, getServices } = useServices()
+const { loading, services, getServices } = useServices()
 const { debounce } = useDebounce()
+const { paginatedServices, paginateResult, setPagination, paginationOffset } = usePagination()
 
 const searchQuery = ref('')
 const currentService: IServiceDetails | null = ref(null)
@@ -28,6 +31,10 @@ watch(searchQuery, debounce(() => {
     getServices()
   }
 }))
+
+watch(services, () => {
+  paginateResult(services.value)
+})
 </script>
 
 <template>
@@ -61,13 +68,16 @@ watch(searchQuery, debounce(() => {
           </CtaBitton>
         </div>
       </div>
-      <div v-if="!loading">
+      <div
+        v-if="!loading"
+        class="non-loading"
+      >
         <div
-          v-if="services.length"
+          v-if="paginatedServices.length"
           class="catalog"
         >
           <div
-            v-for="service in services"
+            v-for="service in paginatedServices"
             :key="service.id"
             :aria-label="service.name"
             class="service-card"
@@ -98,6 +108,13 @@ watch(searchQuery, debounce(() => {
       >
         <LoadingAnimation />
       </div>
+      <ServicePagination
+        v-if="!loading && paginatedServices.length"
+        :current-offset="paginationOffset"
+        :services="services"
+        @next="setPagination('next')"
+        @previous="setPagination('previous')"
+      />
     </div>
   </div>
 </template>
@@ -191,6 +208,10 @@ watch(searchQuery, debounce(() => {
     img {
       margin-bottom: 3rem;
     }
+  }
+
+  .non-loading {
+    min-height: 80vh;
   }
 
   .loading {
