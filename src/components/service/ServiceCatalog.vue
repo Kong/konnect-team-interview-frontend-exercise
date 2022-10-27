@@ -17,7 +17,7 @@ const { debounce } = useDebounce()
 const { paginatedServices, paginateResult, setPagination, paginationOffset } = usePagination()
 
 const searchQuery = ref('')
-const currentService: IServiceDetails | null = ref(null)
+const currentService = ref<IServiceDetails | null>(null)
 
 const showServiceDetails = (service: IServiceDetails) => {
   currentService.value = service

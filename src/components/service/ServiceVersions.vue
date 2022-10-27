@@ -14,10 +14,10 @@ const developerName = (name: string): string => {
 <template>
   <div class="service-versions">
     <h3 class="title">
-      Versions ({{ props.service.versions.length }})
+      Versions ({{ props.service?.versions.length }})
     </h3>
     <div
-      v-for="(version, n) in props.service.versions"
+      v-for="(version, n) in props.service?.versions"
       :key="version.id"
       class="version"
     >
@@ -29,7 +29,7 @@ const developerName = (name: string): string => {
           {{ version.description }}
         </p>
         <span class="service-type-label">
-          {{ service.type }}
+          {{ service?.type }}
         </span>
       </div>
       <div>
@@ -42,7 +42,7 @@ const developerName = (name: string): string => {
         <div>
           <p
             v-if="version.developer"
-            class="developer-name truncate"
+            class="truncate developer-name"
           >
             {{ developerName(version.developer.name) }}
           </p>

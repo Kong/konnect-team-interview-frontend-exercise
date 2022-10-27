@@ -24,7 +24,7 @@ const notDisplayedProfiles = computed(() => {
   return props.profiles.length - limit
 })
 
-const size = computed(() => {
+const size: any = computed(() => {
   const assignedSize = props.size || 'md'
   if (assignedSize === 'sm') {
     return '20px'

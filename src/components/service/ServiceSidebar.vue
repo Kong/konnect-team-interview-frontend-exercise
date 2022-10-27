@@ -42,9 +42,12 @@ document.addEventListener('scroll', () => {
           class="close-icon"
           @click="isOpen = false"
         />
-        <ServiceDetails :service="props.service" />
+        <ServiceDetails
+          v-if="props.service"
+          :service="props.service"
+        />
         <ServiceVersions
-          v-if="props.service.versions.length"
+          v-if="props.service?.versions.length"
           :service="props.service"
         />
       </div>
