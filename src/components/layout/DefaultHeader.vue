@@ -17,11 +17,11 @@ const { user } = useAuthStore()
         <Logo />
       </router-link>
       <div class="menu-large">
-        <router-link to="/">
+        <router-link to="/organization">
           <Organization class="icon fill-current" />
           Organization
         </router-link>
-        <router-link to="/">
+        <router-link to="/settings">
           <Settings class="icon fill-current" />
           Settings
         </router-link>
@@ -31,13 +31,13 @@ const { user } = useAuthStore()
         <template #content>
           <router-link
             class="popover-item"
-            to="/"
+            to="/organization"
           >
             Organization
           </router-link>
           <router-link
             class="popover-item"
-            to="/"
+            to="/settings"
           >
             Settings
           </router-link>

@@ -4,7 +4,7 @@ import useServices from '@/composables/useServices'
 import ServiceSidebar from '@/components/service/ServiceSidebar.vue'
 import ServiceDetails from '@/components/service/ServiceDetails.vue'
 import { IServiceDetails } from '@/interfaces/service-details.interface'
-import CtaBitton from '@/components/common/CtaBitton.vue'
+import CtaButton from '@/components/common/CtaButton.vue'
 import Plus from '@/assets/icons/plus.svg?component'
 import Search from '@/assets/icons/search.svg?component'
 import useDebounce from '@/composables/useDebounce'
@@ -35,6 +35,10 @@ watch(searchQuery, debounce(() => {
 watch(services, () => {
   paginateResult(services.value)
 })
+
+const showAlert = () => {
+  alert('Roses are #ff0000, violets are #0000ff 🤪')
+}
 </script>
 
 <template>
@@ -60,12 +64,12 @@ watch(services, () => {
               placeholder="Search"
             >
           </div>
-          <CtaBitton>
+          <CtaButton @click="showAlert">
             <template #icon>
               <Plus class="fill-current" />
             </template>
             Service <span class="button-text">&nbsp;Package</span>
-          </CtaBitton>
+          </CtaButton>
         </div>
       </div>
       <div

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { IServiceDetails } from '@/interfaces/service-details.interface'
 import Checkmark from '@/assets/icons/checkmark.svg?component'
 import Times from '@/assets/icons/times.svg?component'
+import InProgress from '@/assets/icons/in-progress.svg?component'
 import RoundPill from '@/components/common/RoundPill.vue'
 import useFormatMetrics from '@/composables/useFormatMetrics'
 import AvatarGroup from '@/components/common/AvatarGroup.vue'
@@ -28,16 +29,24 @@ const serviceDevelopers = computed(() => {
 <template>
   <div class="header">
     <div class="status">
-      <div v-if="service.published">
-        <Checkmark class="stroke-current icon-published" />
-        <p class="text-sm">
-          Published to portal
-        </p>
+      <div v-if="service.configured">
+        <div v-if="service.published">
+          <Checkmark class="stroke-current icon-published icon" />
+          <p class="text-sm">
+            Published to portal
+          </p>
+        </div>
+        <div v-else>
+          <Times class="stroke-current icon-unpublished icon" />
+          <p class="text-sm">
+            Unpublished
+          </p>
+        </div>
       </div>
       <div v-else>
-        <Times class="stroke-current icon-unpublished" />
+        <InProgress class="icon" />
         <p class="text-sm">
-          Unpublished
+          In Progress
         </p>
       </div>
     </div>
@@ -91,9 +100,13 @@ const serviceDevelopers = computed(() => {
   justify-content: space-between;
   margin-bottom: 5px;
 
-  .status > div {
+  .status div {
     display: inline-flex;
     align-items: center;
+
+    .icon {
+      margin-right: 5px;
+    }
 
     .icon-published {
       color: $green-400;
