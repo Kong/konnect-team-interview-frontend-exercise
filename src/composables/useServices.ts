@@ -9,12 +9,12 @@ export default function useServices(): any {
   const services = ref<any[]>([])
   const loading = ref<any>(false)
 
-  const getServices = async (): Promise<any> => {
+  const getServices = async (query?: string): Promise<any> => {
     // Initialize loading state
     loading.value = true
 
     // Fetch data from the API
-    const result = await axios.get('/api/services')
+    const result = await axios.get(`/api/services${query ? `?q=${query}` : ''}`)
 
     // Store data in Vue ref
     services.value = result.data
@@ -30,6 +30,7 @@ export default function useServices(): any {
 
   // Return stateful data
   return {
+    getServices,
     services,
     loading,
   }

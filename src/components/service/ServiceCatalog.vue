@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import useServices from '@/composables/useServices'
 import ServiceSidebar from '@/components/service/ServiceSidebar.vue'
 import ServiceDetails from '@/components/service/ServiceDetails.vue'
@@ -7,8 +7,11 @@ import { IServiceDetails } from '@/interfaces/service-details.interface'
 import CtaBitton from '@/components/common/CtaBitton.vue'
 import Plus from '@/assets/icons/plus.svg?component'
 import Search from '@/assets/icons/search.svg?component'
+import useDebounce from '@/composables/useDebounce'
+import LoadingAnimation from '@/components/common/LoadingAnimation.vue'
 
-const { services, loading } = useServices()
+const { services, loading, getServices } = useServices()
+const { debounce } = useDebounce()
 
 const searchQuery = ref('')
 const currentService: IServiceDetails | null = ref(null)
@@ -16,6 +19,15 @@ const currentService: IServiceDetails | null = ref(null)
 const showServiceDetails = (service: IServiceDetails) => {
   currentService.value = service
 }
+
+watch(searchQuery, debounce(() => {
+  if (searchQuery.value.trim().length > 2) {
+    getServices(searchQuery.value.trim())
+  }
+  if (!searchQuery.value.length) {
+    getServices()
+  }
+}))
 </script>
 
 <template>
@@ -49,23 +61,42 @@ const showServiceDetails = (service: IServiceDetails) => {
           </CtaBitton>
         </div>
       </div>
-      <div
-        ref="catalog"
-        class="catalog"
-      >
+      <div v-if="!loading">
         <div
-          v-for="service in services"
-          :key="service.id"
-          :aria-label="service.name"
-          class="service-card"
-          tabindex="0"
-          @click="showServiceDetails(service)"
+          v-if="services.length"
+          class="catalog"
         >
-          <ServiceDetails
-            is-card
-            :service="service"
-          />
+          <div
+            v-for="service in services"
+            :key="service.id"
+            :aria-label="service.name"
+            class="service-card"
+            tabindex="0"
+            @click="showServiceDetails(service)"
+          >
+            <ServiceDetails
+              is-card
+              :service="service"
+            />
+          </div>
         </div>
+        <div
+          v-else
+          class="not-found"
+        >
+          <img
+            alt=""
+            src="@/assets/static/basecamp_is_fine.png"
+            width="300"
+          >
+          <h3>Nothing Found</h3>
+        </div>
+      </div>
+      <div
+        v-else
+        class="loading"
+      >
+        <LoadingAnimation />
       </div>
     </div>
   </div>
@@ -148,6 +179,25 @@ const showServiceDetails = (service: IServiceDetails) => {
       display: flex;
       flex-direction: column;
     }
+  }
+
+  .not-found {
+    padding-top: 10rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .loading {
+    margin-top: 10rem;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
   }
 }
 </style>
