@@ -22,7 +22,7 @@ const developerName = (name: string): string => {
       class="version"
     >
       <div>
-        <p class="version-name">
+        <p class="version-name truncate">
           v{{ version.name }}
         </p>
         <p class="version-description">
@@ -84,10 +84,11 @@ const developerName = (name: string): string => {
       font-weight: 600;
       color: $grey-900;
       margin-right: 10px;
+      width: 40px;
     }
 
     .version-description {
-      max-width: 130px;
+      width: 130px;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -101,7 +102,7 @@ const developerName = (name: string): string => {
     .service-type-label {
       font-size: 10px;
       font-weight: 500;
-      padding: 2px 5px;
+      padding: 0 5px;
       border-radius: 4px;
       background: $blue-100;
       color: $blue-400;

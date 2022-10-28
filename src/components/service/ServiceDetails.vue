@@ -101,11 +101,15 @@ const serviceDevelopers = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 
   .status div {
     display: inline-flex;
     align-items: center;
+
+    p {
+      margin: 0;
+    }
 
     .icon {
       margin-right: 5px;

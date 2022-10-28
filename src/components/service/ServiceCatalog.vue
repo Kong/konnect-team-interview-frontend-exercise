@@ -184,7 +184,7 @@ const showAlert = () => {
     margin-top: 15px;
     width: 100%;
     display: grid;
-    gap: 3rem;
+    gap: 3.2rem;
 
     grid-template-columns: repeat(1, minmax(0, 1fr));
     @media (min-width: $lg) {
@@ -216,7 +216,7 @@ const showAlert = () => {
   }
 
   .non-loading {
-    min-height: 910px;
+    min-height: 875px;
   }
 
   .loading {
