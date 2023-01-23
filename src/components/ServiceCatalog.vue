@@ -1,25 +1,18 @@
 <template>
-  <div class="service-catalog">
-    <h1>Service Catalog</h1>
-    <input
-      v-model="searchQuery"
-      class="search-input"
-      placeholder="Search services"
-    >
-    <ul
-      class="catalog"
-    >
-      <li
-        v-for="service in services"
-        :key="service.id"
-        class="service"
-      >
-        <div>
-          <p>
-            {{ service.name }}
-          </p>
-          <p>{{ service.description }}</p>
-        </div>
+  <div class="service-hub">
+    <div class="service-hub-header">
+      <div class="heading-container">
+        <h1>Service Hub</h1>
+        <p>Organize services, manage and track cersioning and API service documentation. <a href="">Learn more</a></p>
+      </div>
+      <div class="functional">
+        <input v-model="searchQuery" class="search-input" placeholder="Search services">
+        <button class="create-service-button">Service Package</button>
+      </div>
+    </div>
+    <ul class="catalog">
+      <li v-for="service in services" :key="service.id" class="service">
+        <ServiceCard :service="service" />
       </li>
     </ul>
   </div>
@@ -28,9 +21,14 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import useServices from '@/composables/useServices'
+//Custom Component Imports
+import ServiceCard from './ServiceCard.vue'
 
 export default defineComponent({
   name: 'ServiceCatalog',
+  components: {
+    ServiceCard
+  },
   setup() {
     // Import services from the composable
     const { services, loading } = useServices()
@@ -48,10 +46,30 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.service-catalog {
+.service-hub {
   max-width: 1366px;
   margin: 2rem auto;
   padding: 0 20px;
+
+  .service-hub-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .heading-container {
+      flex-grow: 1
+    }
+
+    .functional {
+      display: flex;
+      align-items: center;
+      width: 30%;
+
+      .create-service-button {
+        margin-left: 20px;
+      }
+    }
+  }
 }
 
 .catalog {
@@ -59,26 +77,5 @@ export default defineComponent({
   flex-wrap: wrap;
   margin: 20px 0 0 0;
   list-style: none;
-}
-
-.service {
-  width: 200px;
-  margin: 6px;
-  border: 1px solid #999;
-  border-radius: 10px;
-  padding: 8px 16px;
-
-  p:first-of-type {
-    color: #333;
-    font-weight: 700;
-  }
-
-  p {
-    color: #666;
-  }
-}
-
-input {
-  padding: 8px 4px;
 }
 </style>
