@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^8.4.0
     version: 8.4.0
   '@kong/eslint-config-kong-ui':
-    specifier: ^1.0.3
-    version: 1.0.3(eslint@9.4.0)(typescript@5.3.3)
+    specifier: ^1.1.1
+    version: 1.1.1(eslint@9.4.0)(typescript@5.3.3)
   '@tsconfig/node20':
     specifier: ^20.1.2
     version: 20.1.2
@@ -1049,8 +1049,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@kong/eslint-config-kong-ui@1.0.3(eslint@9.4.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-l2Rg5TCQkyohBKKUn3efp9xEjiZv/QfCf6yC5ycaqIJRcbG0QJMc7s7RAM7MgDKz1gLpmjxptvGeYnEdhU8OQA==}
+  /@kong/eslint-config-kong-ui@1.1.1(eslint@9.4.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-L66Nqif4KcWlaSX9xb9WToMh9JbcxGrRb6tF1hz36GsZZaBsk6cHdVKVXUjPA7jgtkE1aUHpzQO1IM/UMLQCQg==}
     engines: {node: '>=18.0.0 || >=20.13.1'}
     peerDependencies:
       eslint: '>= 9.4.0'
@@ -2987,7 +2987,7 @@ packages:
       eslint: '>=6.0.0'
     dependencies:
       eslint: 9.4.0
-      semver: 7.5.4
+      semver: 7.6.2
     dev: true
 
   /eslint-plugin-cypress@3.3.0(eslint@9.4.0):
@@ -3040,8 +3040,8 @@ packages:
       get-tsconfig: 4.7.5
       globals: 15.3.0
       ignore: 5.3.1
-      minimatch: 9.0.3
-      semver: 7.5.4
+      minimatch: 9.0.4
+      semver: 7.6.2
     dev: true
 
   /eslint-plugin-promise@6.2.0(eslint@9.4.0):
@@ -4307,7 +4307,7 @@ packages:
       acorn: 8.11.3
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      semver: 7.5.4
+      semver: 7.6.2
     dev: true
 
   /jsonc-parser@3.2.1:
@@ -6612,7 +6612,7 @@ packages:
       espree: 9.6.1
       esquery: 1.5.0
       lodash: 4.17.21
-      semver: 7.5.4
+      semver: 7.6.2
     transitivePeerDependencies:
       - supports-color
     dev: true
