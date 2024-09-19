@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^8.0.1
     version: 8.0.1(@types/node@20.11.16)(typescript@5.3.3)
   '@faker-js/faker':
-    specifier: ^8.4.0
-    version: 8.4.0
+    specifier: ^9.0.0
+    version: 9.0.1
   '@kong/eslint-config-kong-ui':
     specifier: ^1.0.3
     version: 1.0.3(eslint@9.4.0)(typescript@5.3.3)
@@ -974,9 +974,9 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dev: true
 
-  /@faker-js/faker@8.4.0:
-    resolution: {integrity: sha512-htW87352wzUCdX1jyUQocUcmAaFqcR/w082EC8iP/gtkF0K+aKcBp0hR5Arb7dzR8tQ1TrhE9DNa5EbJELm84w==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
+  /@faker-js/faker@9.0.1:
+    resolution: {integrity: sha512-4mDeYIgM3By7X6t5E6eYwLAa+2h4DeZDF7thhzIg6XB76jeEvMwadYAMCFJL/R4AnEBcAUO9+gL0vhy3s+qvZA==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
     dev: true
 
   /@humanwhocodes/module-importer@1.0.1:
