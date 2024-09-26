@@ -42,7 +42,7 @@
     "@vitest/ui": "^1.2.2",
     "@vue/test-utils": "^2.4.4",
     "@vue/tsconfig": "^0.5.1",
-    "c8": "^9.1.0",
+    "c8": "^10.1.2",
     "commitizen": "^4.3.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
