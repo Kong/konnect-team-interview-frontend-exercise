@@ -15,6 +15,7 @@ Modify the provided Vue 3 app to match [this mock](https://www.figma.com/file/sw
 ### Links
 
 - Figma Mock: <https://www.figma.com/file/swzJVL624G434CVdWi3FLv/Core-UI-Team-Project>
+- Acceptance criterias: <https://docs.google.com/document/d/1AIXTtrEMZBnfoLYXDlBYiEB-BTk7XNt2QlY7jWYdPv0/edit?tab=t.0#heading=h.8hapmwf98sj>
 
 ## Functional Requirements
 
