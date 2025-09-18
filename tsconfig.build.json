@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "mocks",
+    "src/**/*.spec.ts",
+    "src/**/*.cy.ts",
+  ],
+}
