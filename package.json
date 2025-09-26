@@ -60,7 +60,7 @@
     "stylelint-order": "^6.0.4",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.20.5",
-    "typescript": "~5.3.3",
+    "typescript": "~5.9.2",
     "vite": "^5.4.20",
     "vite-plugin-vue-devtools": "^7.7.7",
     "vitest": "^1.6.1",
@@ -77,9 +77,9 @@
   "license": "UNLICENSED",
   "volta": {
     "node": "22.19.0",
-    "pnpm": "10.15.1"
+    "pnpm": "10.16.1"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.16.1",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@parcel/watcher",
