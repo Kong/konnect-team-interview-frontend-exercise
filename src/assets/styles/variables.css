@@ -1,0 +1,41 @@
+:root {
+    --font-base: 'Inter', sans-serif;
+    --font-xs: 14px;
+    --font-sm: 16px;
+    --font-md: 20px;
+    --font-lg: 24px;
+    --font-xl: 32px;
+
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold:600;
+    --weight-bold: 700;
+
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --pad-x: 40px;
+    --pad-y: 24px;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-grey-light: #e7e7ec;
+    --color-primary: #07a88d; 
+    --color-secondary: #1456cb;
+    --color-secondary-light:#F2F6FE;
+    --color-warning: #fabe5f;
+    --color-neutral: #adb6c8;
+    --color-bg-light: #f1f1f8;
+    --color-text-dark: #3c4557;
+    --color-text-muted: #707888;
+
+    --header-bg: linear-gradient(180deg, #09224f 0%, #073382 100%);
+    --header-text: #fff;
+    --header-height: 70px;
+
+    /* UI Roles */
+    --color-bg: var(--color-bg-light);
+    --color-surface: var(--color-white);
+    --color-border: var(--color-grey-light)
+}
+

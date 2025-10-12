@@ -29,7 +29,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.vue"
-  ],
+, "src/lib/DataQuery/tests/QueryClient..spects"  ],
   "exclude": [
     "node_modules",
     "dist",
