@@ -1,3 +1,6 @@
+<details>
+<summary>Assignment Task Overview</summary>
+
 # Welcome
 
 Please take the time to read through all of the sections below; we want you to do great! :rocket:
@@ -194,3 +197,135 @@ pnpm commit
 ```
 
 This will trigger the Commitizen interactive prompt for building your commit message.
+
+</details>
+<details>
+<summary>Assignment Implementation Overview</summary>
+
+## Overview
+
+This project is my implementation for the Konnect frontend take-home assignment.  
+In this README, I’m focusing mainly on my **design decisions**, **reasoning**, and how I structured the frontend layers, rather than describing the feature itself.  
+The repo is self-contained, so exploring the code directly will give a clear picture of the implementation.
+
+Even though I don’t have much prior experience with Vue, I tried to approach this the way I’d design it in a production environment thinking in terms of **state segregation**, **Architecture**, and **clear layering**.  
+Most of my background is in React and React based ecosytem, so I intentionally tried to map some of the patterns I usually use there into the Vue ecosystem to understand how things work differently here.
+
+---
+
+## App Entry and Plugin Setup
+
+The app starts from `main.ts`.  
+Here I’ve initialized:
+
+- `Pinia` for global state management
+- A custom small implementation of `DataQuery` plugin (inspired by TanStack Query) (More on this on Data Layer Design section)
+- Vue Router
+- A **route state sync utility** (similar to NUQS in react ecosytem) (More on this on Data Layer Design section)
+- Vue Router
+
+### Why a plugin?
+For the data layer, I had two options:
+1. Import and use custom data query library's func directly (tight coupling)
+2. Register them as a plugin (similar to how Pinia works)
+
+I went with the plugin pattern.  
+This keeps the data client loosely coupled and future friendly. For example, tomorrow the same plugin can use a different cache provider (like Redis, or an in-house caching layer) as long as it implements the same `ICacheManager` interface.
+
+The NUQS-style library, however, is just a small wrapper around the vue router (Already tight coupled), so I imported it directly instead of making it a plugin.
+
+---
+
+## Data Layer Design
+
+I divided data into three types:
+
+### 1. Server-Originated Data
+This includes anything fetched from APIs (/services list in our case).  
+In a real project, I’d use something like **TanStack Query** or **SWR** for caching, background refetching, and error handling.  
+For this project, I wrote a small in-house mock version just to simulate the same pattern (`lib/dataQuery`) like caching (currently buggy) and retry on failure etc.  
+It’s not production ready and has a few bugs, but it works for the happy path and conveys the idea.
+
+### 2. Client-Side Data
+There are two main kinds here:
+- **Route-bound data**: pagination and search parameters.  
+  These are synced with the URL so that the state can be bookmarked or persisted on refresh.  
+  I created a small wrapper over Vue Router to keep this two-way synced with `ref`s.
+- **Global client data**: things like the logged-in user or global state. For this assignment Auth related data was one of the global state candidate.
+  I kept these in **Pinia**. 
+
+### 3. Modal State
+For modal management, I had two choices:
+1. Each component manages its own modal state using local refs or composables.
+2. A single, centralized modal store that can handle registry, stacking, and observability at global levle.
+
+I went with the **central modal manager** approach because it gives better app level control, especially when dealing with multiple modals, layering, or future observability.  
+This is also managed in Pinia.
+
+---
+
+## Component and View Structure
+
+I’ve split components into three clear categories:
+
+1. **Base components** : low level, design-system like primitives (`BaseButton`, `BaseCard`, etc.)
+   These are mostly visual and don’t contain logic.
+2. **Common components** : combinations of base components that can have their own logic (`SearchInput`, `Pagination`, etc.)
+3. **Feature components** : tightly coupled to the feature domain (`ServiceCatalog`, `ServiceCard`, etc.)
+
+Pages are minimal:
+- `HomeView` acts as a container for `ServiceCatalog`
+- `NotFoundView` handles 404 routes
+
+---
+
+## Layout System
+
+There’s a `DefaultLayout` component that wraps the page structure (fixed header + main content via `RouterView`).  
+I chose this layout approach so that adding more layouts in the future (like AuthLayout, DashboardLayout) would be straightforward without restructuring the router.
+
+---
+
+## Styling and Tokens
+
+I’ve used **SCSS** with a **BEM-style** structure for CSS naming.  
+In a real world setup, I’d have a full design token system (like `green-500`, `neutral-100`, etc.) with theme level variables that switch per theme.
+
+For this assignment, I created a `variables.css` file to simulate tokens from the provided Figma.  
+I rounded values to the closest matches and tried to stay consistent, though a few raw values slipped in due to time constraints.
+
+---
+
+## Design System Notes
+
+I haven’t implemented a full design system here since that would take significant time.  
+However, the base components are written with that mindset of reusable and styled with consistent tokens.
+
+---
+
+## Limitations and What I’d Improve
+
+- **Testing** – Only manual testing done due to time limitations and limited knowledge of Vue Ecosystem.  
+- **i18n** – Currently, strings are hardcoded. I’d move them into JSON to support i18n.  
+- **Accessibility** – Very minimal (Only semantic HTML used) but in real world would add roles, keyboard navigation, and follow aria recommendations.  
+- **Observability** – Not implemented 
+- **SVGs** – Used as static `<img>` tags for now, would convert to inline components to support dynamic theming.
+
+---
+
+## Reflection
+
+I’m fairly new to Vue Ecosytem, so this assignment was more of a **learn-by-building** experience for me in Vue ecosystem and utilise all my architecture thinking along the way. I tried showcase more of a system design aspect here rather than my solid understanding of Vue.  
+I didn’t spend time reading complete docs end-to-end first then implement instead, I tried to reason about how things should work and then implemented them and use docs along the way.
+
+---
+
+## DeepWiki Index
+
+I’ve also indexed this repo on DeepWiki that can give a good HLD/LLD level docs and explain the parts would be easier to follow along:  
+[https://deepwiki.com/shivam151395/konnect-team-interview-frontend-exercise](https://deepwiki.com/shivam151395/konnect-team-interview-frontend-exercise)
+
+---
+
+
+</details>
