@@ -20,11 +20,11 @@ export class QueryClient {
   }
   private _createQueryCacheEntry<T>():IQueryCacheEntry<T> {
     return {
-      data: shallowRef<T | null>(null),
-      isPending: ref(false),
-      isError: ref(false),
-      error: ref(null),
-      updatedAt: ref(0),
+      data: null,
+      isPending: false,
+      isError: false,
+      error: null,
+      updatedAt: 0,
       inFlight: undefined,
     }
   }
@@ -42,6 +42,6 @@ export class QueryClient {
     return this.queryCache.has(key)
   }
   public isStaleEntry<T>(entry: IQueryCacheEntry<T>, staleTime: number) {
-    return entry.updatedAt.value === 0 ? false : Date.now() - entry.updatedAt.value >= staleTime
+    return entry.updatedAt === 0 ? false : Date.now() - entry.updatedAt >= staleTime
   }
 }

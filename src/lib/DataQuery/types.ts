@@ -18,6 +18,16 @@ export interface IQueryClientConfig {
 }
 
 export interface IQueryCacheEntry<T> {
+  data: T | null
+  isPending: boolean
+  isError: boolean
+  error: Error | null
+  updatedAt: number
+  inFlight?: Promise<T | void>
+}
+
+// UseQuery Composable
+export interface IUseQueryResult<T> {
   data: Ref<T | null>
   isPending: Ref<boolean>
   isError: Ref<boolean>
@@ -25,7 +35,4 @@ export interface IQueryCacheEntry<T> {
   updatedAt: Ref<number>
   inFlight?: Promise<T | void>
 }
-
-// UseQuery Composable
-
 export type QueryFn<T> = () => Promise<T>
