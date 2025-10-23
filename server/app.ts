@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 // Data route
 app.route('/api/:entity').get((req: Request, res: Response) => {
   const { entity } = req.params
-  const data: Record<string, any>[] = response[entity]
+  const data: Array<Record<string, any>> = response[entity]
 
   if (!data) {
     return res.status(404).send('Not found')
@@ -27,7 +27,7 @@ app.route('/api/:entity').get((req: Request, res: Response) => {
   // Determine if the property includes the filter string
   const itemContainsFilter = (str: string) => (String(str || '').toLowerCase().includes(query) || false)
 
-  let filteredData: Record<string, any>[]
+  let filteredData: Array<Record<string, any>>
 
   if (!query) {
     filteredData = data
