@@ -77,9 +77,9 @@
   "license": "UNLICENSED",
   "volta": {
     "node": "22.19.0",
-    "pnpm": "10.27.0"
+    "pnpm": "10.28.2"
   },
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.2",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@parcel/watcher",
