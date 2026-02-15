@@ -22,10 +22,10 @@
     "axios": "^1.12.2",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "pinia": "^2.3.1",
     "vue": "^3.5.21",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
@@ -47,20 +47,20 @@
     "commitizen": "^4.3.1",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.35.0",
+    "eslint": "^9.39.2",
     "jsdom": "^25.0.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.5.6",
     "postcss-html": "^1.8.0",
-    "sass": "^1.92.1",
+    "sass": "^1.97.3",
     "stylelint": "^16.24.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-recommended-vue": "^1.6.1",
     "stylelint-order": "^6.0.4",
     "ts-node-dev": "^2.0.0",
-    "tsx": "^4.20.5",
-    "typescript": "~5.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "~5.9.3",
     "vite": "^5.4.20",
     "vite-plugin-vue-devtools": "^7.7.7",
     "vitest": "^1.6.1",
@@ -76,10 +76,10 @@
   },
   "license": "UNLICENSED",
   "volta": {
-    "node": "22.19.0",
-    "pnpm": "10.28.2"
+    "node": "22.22.0",
+    "pnpm": "10.29.3"
   },
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.3",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@parcel/watcher",
