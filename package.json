@@ -33,7 +33,7 @@
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@faker-js/faker": "^9.9.0",
     "@kong/eslint-config-kong-ui": "^1.5.5",
-    "@tsconfig/node20": "^20.1.6",
+    "@tsconfig/node22": "^22.0.0",
     "@types/body-parser": "^1.19.6",
     "@types/express": "^4.17.23",
     "@types/flat": "^5.0.5",
