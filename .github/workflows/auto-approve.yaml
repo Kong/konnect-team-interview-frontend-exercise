@@ -20,4 +20,4 @@ jobs:
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           # Use the bot account PAT to allow auto-approve and merge the PRs
-          GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
+          GITHUB_TOKEN: ${{  github.token }}
